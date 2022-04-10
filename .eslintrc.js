@@ -34,6 +34,7 @@ module.exports = {
       },
     ],
     'vue/multi-word-component-names': ['off'],
+    'import/prefer-default-export': ['off'],
   },
   globals: {
     // https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/user-guide/README.md#compiler-macros-such-as-defineprops-and-defineemits-are-warned-by-no-undef-rule
