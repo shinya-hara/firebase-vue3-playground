@@ -1,16 +1,16 @@
 import { ref } from 'vue';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/plugins/firebase';
 
 const error = ref(null);
 
-const signUp = async (email: string, password: string) => {
+const signIn = async (email: string, password: string) => {
   error.value = null;
 
   try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
+    const res = await signInWithEmailAndPassword(auth, email, password);
     if (!res) {
-      throw new Error('Could not complete the signUp');
+      throw new Error('Could not complete the signIn');
     }
     error.value = null;
     console.log(res.user);
@@ -22,4 +22,4 @@ const signUp = async (email: string, password: string) => {
   }
 };
 
-export const useSignUp = () => ({ signUp, error });
+export const useSignIn = () => ({ signIn, error });
